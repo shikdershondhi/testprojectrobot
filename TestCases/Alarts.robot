@@ -1,5 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
+Resource    ../Resources/resources.robot
 
 
 *** Variables ***
@@ -18,12 +19,3 @@ Testing alart Button
     # Handle Alert    dismiss
 
     # Handle Alert    leave
-
-
-*** Keywords ***
-launchBrowser
-    [Arguments]    ${appurl}    ${appbrowser}
-    Open Browser    ${appurl}    ${appbrowser}
-    Maximize Browser Window
-    ${title}=    Get Title
-    RETURN    ${title}
