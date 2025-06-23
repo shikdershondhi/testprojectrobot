@@ -9,8 +9,8 @@ ${url}          https://testautomationpractice.blogspot.com/
 
 *** Test Cases ***
 Testing alart Button
-    Open Browser    ${url}    ${browser}
-    Maximize Browser Window
+    ${PageTitle}=    launchBrowser    ${url}    ${browser}
+    Log To Console    ${PageTitle}
     # Simple Alert
     Click Element    xpath=//*[@id="HTML9"]/div[1]/button
     Handle Alert    accept
@@ -18,3 +18,12 @@ Testing alart Button
     # Handle Alert    dismiss
 
     # Handle Alert    leave
+
+
+*** Keywords ***
+launchBrowser
+    [Arguments]    ${appurl}    ${appbrowser}
+    Open Browser    ${appurl}    ${appbrowser}
+    Maximize Browser Window
+    ${title}=    Get Title
+    RETURN    ${title}
